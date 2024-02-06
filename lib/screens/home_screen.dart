@@ -17,6 +17,13 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isPressed = false;
 
   void nextQuestion() {
+    if (isPressed == false) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: const Text("Please select any option"),
+        behavior: SnackBarBehavior.floating,
+        margin: EdgeInsets.symmetric(vertical: 20.0),
+      ));
+    }
     if (index == _questions.length - 1) {
       return;
     }
